@@ -1,17 +1,22 @@
 <!DOCTYPE html>
+<!-- HTML document for a simple counter application -->
 <html lang="en">
 <head>
+    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sandra Lawal | Student ID: 76870</title>
 
+    <!-- Embedded CSS styles for the counter app -->
     <style>
+        /* CSS reset to remove default margins and padding */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Body styles for layout and background */
         body {
             font-family: Arial, Helvetica, sans-serif;
             min-height: 100vh;
@@ -22,6 +27,7 @@
             padding: 20px;
         }
 
+        /* Main wrapper container for centering content */
         .wrapper {
             width: 100%;
             max-width: 1050px;
@@ -35,6 +41,7 @@
             padding: 40px 20px 60px;
         }
 
+        /* Heading styles */
         h1 {
             font-size: 3.2rem;
             font-weight: 700;
@@ -42,6 +49,7 @@
             margin-bottom: 30px;
         }
 
+        /* Counter display styles */
         #boxCounter {
             font-size: 7rem;
             font-weight: 700;
@@ -50,6 +58,7 @@
             line-height: 1;
         }
 
+        /* Button container styles */
         #container-button {
             display: flex;
             gap: 28px;
@@ -57,6 +66,7 @@
             justify-content: center;
         }
 
+        /* General button styles */
         #container-button button {
             min-width: 220px;
             padding: 18px 28px;
@@ -73,15 +83,18 @@
             transition: all 0.2s ease;
         }
 
+        /* Button hover effect */
         #container-button button:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.22);
         }
 
+        /* Button active state */
         #container-button button:active {
             transform: translateY(0);
         }
 
+        /* Icons for buttons using pseudo-elements */
         #DecrementButton::before {
             content: "➖ ";
         }
@@ -94,6 +107,7 @@
             content: "➕ ";
         }
 
+        /* Responsive styles for mobile devices */
         @media (max-width: 768px) {
             .wrapper {
                 min-height: auto;
@@ -120,25 +134,37 @@
         }
     </style>
 </head>
+<!-- Main body content -->
 <body>
 
+    <!-- Main wrapper div containing the counter app -->
     <div class="wrapper">
+        <!-- Page title -->
         <h1>Counter</h1>
 
+        <!-- Counter display element -->
         <div id="boxCounter">0</div>
 
+        <!-- Button container -->
         <div id="container-button">
+            <!-- Decrement button -->
             <button id="DecrementButton">Decrease</button>
+            <!-- Reset button -->
             <button id="ResetButton">Reset</button>
+            <!-- Increment button -->
             <button id="IncrementButton">Increase</button>
         </div>
     </div>
     
+    <!-- Embedded JavaScript for counter functionality -->
     <script>
+        // Get references to DOM elements
         const boxCounter = document.getElementById('boxCounter');
         const btncontainer = document.getElementById('container-button');
 
+        // Add event listener to button container for click events
         btncontainer.addEventListener('click', (event) => {
+            // Check which button was clicked and update counter accordingly
             if (event.target.id === 'IncrementButton') {
                 boxCounter.innerText = parseInt(boxCounter.innerText) + 1;
             } else if (event.target.id === 'DecrementButton') {
@@ -147,6 +173,7 @@
                 boxCounter.innerText = 0;
             }
 
+            // Change color based on counter value
             if (parseInt(boxCounter.innerText) < 0) {
                 boxCounter.style.color = '#ff0000';
             } else if (parseInt(boxCounter.innerText) > 0) {
